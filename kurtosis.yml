@@ -1,0 +1,4 @@
+name: "github.com/bharath-123/db-adminer-package"
+description: |
+  # Adminer
+  This is the Kurtosis package for launching an Adminer instance.

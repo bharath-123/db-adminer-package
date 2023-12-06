@@ -1,6 +1,10 @@
 PORT_NAME = "adminer"
 ADMINER_PORT_NUMBER = 8080
 
+ADMINER_MIN_CPU = 10
+ADMINER_MAX_CPU = 1000
+ADMINER_MIN_MEMORY = 32
+ADMINER_MAX_MEMORY = 1024
 def run(plan, default_db, default_driver, default_password, 
         default_server, default_username, image = "michalhosna/adminer", service_name = "adminer", 
 ):
@@ -27,10 +31,18 @@ def run(plan, default_db, default_driver, default_password,
                 "ADMINER_USERNAME": default_username,
                 "ADMINER_AUTOLOGIN": "1",
             },
+            min_cpu:ADMINER_MIN_CPU,
+            max_CPU:ADMINER_MAX_CPU,
+            min_memory:ADMINER_MIN_MEMORY,
+            max_memory:ADMINER_MAX_MEMORY,
         )
     )
 
     return struct(
         serivce = adminer_service,
         port = adminer_service.ports[PORT_NAME],
+        min_cpu=min_cpu,
+        max_cpu=max_cpu,
+        min_memory=min_memory,
+        max_memory=max_memory,
     )

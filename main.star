@@ -16,6 +16,10 @@ def run(
     default_username,
     image="michalhosna/adminer",
     service_name="adminer",
+    min_cpu=ADMINER_MIN_CPU,
+    max_cpu=ADMINER_MAX_CPU,
+    min_memory=ADMINER_MIN_MEMORY,
+    max_memory=ADMINER_MAX_MEMORY,
 ):
     """
     Launches an adminer setup which can be used to inspect postgres, mysql databases etc
@@ -40,10 +44,10 @@ def run(
                 "ADMINER_USERNAME": default_username,
                 "ADMINER_AUTOLOGIN": "1",
             },
-            min_cpu=ADMINER_MIN_CPU,
-            max_CPU=ADMINER_MAX_CPU,
-            min_memory=ADMINER_MIN_MEMORY,
-            max_memory=ADMINER_MAX_MEMORY,
+            min_cpu=min_cpu,
+            max_cpu=max_cpu,
+            min_memory=min_memory,
+            max_memory=max_memory,
         ),
     )
 
